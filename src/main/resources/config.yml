@@ -1,0 +1,10 @@
+ranks:
+  admin: "&4[Admin]"
+  moderator: "&2[Moderator]"
+  friend: "&8[Friend]"
+
+players:
+  UnOwly: admin
+
+timber:
+  enabled: []
