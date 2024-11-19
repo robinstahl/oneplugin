@@ -21,6 +21,6 @@ public class PlayerJoinListener  implements Listener {
         String rankKey = plugin.getConfig().getString("players." + player.getName(), "player");
         String rankPrefix = plugin.getConfig().getString("ranks." + rankKey, "&7[Player]");
 
-        player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', rankPrefix +  " " + player.getName()));
+        player.setPlayerListName(ChatColor.translateAlternateColorCodes('&', rankPrefix +  " " + ChatColor.WHITE + player.getName()));
     }
 }

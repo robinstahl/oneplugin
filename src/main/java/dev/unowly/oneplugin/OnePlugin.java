@@ -23,10 +23,12 @@ public final class OnePlugin extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
+        //Listener
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
-        getCommand("setrank").setExecutor(new SetRankCommand(this));
-
         getServer().getPluginManager().registerEvents(new TimberListener(this), this);
+
+        //Commands
+        getCommand("setrank").setExecutor(new SetRankCommand(this));
         getCommand("timber").setExecutor(new TimberCommand(this));
 
     }

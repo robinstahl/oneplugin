@@ -18,7 +18,7 @@ public class TimberCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage(ChatColor.RED + "Dieser Befehl kann nur von Spielern verwendet werden!");
+            sender.sendMessage(ChatColor.RED + "This command can only be executed by a player!");
             return true;
         }
 
@@ -27,10 +27,10 @@ public class TimberCommand implements CommandExecutor {
         boolean isEnabled = plugin.getTimberEnabled().contains(player.getUniqueId());
         if (isEnabled) {
             plugin.getTimberEnabled().remove(player.getUniqueId());
-            player.sendMessage(ChatColor.RED + "Timber-Modus deaktiviert!");
+            player.sendMessage(ChatColor.RED + "Timber-Mode deactivated!");
         } else {
             plugin.getTimberEnabled().add(player.getUniqueId());
-            player.sendMessage(ChatColor.GREEN + "Timber-Modus aktiviert!");
+            player.sendMessage(ChatColor.GREEN + "Timber-Modus activated!");
         }
 
         return true;
