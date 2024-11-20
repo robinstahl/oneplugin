@@ -15,7 +15,6 @@ public class ScoreboardManager {
     public ScoreboardManager() {
         this.scoreboard = Bukkit.getScoreboardManager().getMainScoreboard();
 
-        // Erstelle Team für Chunkloader, falls nicht vorhanden
         if (scoreboard.getTeam("chunkloaders") == null) {
             Team chunkLoaderTeam = scoreboard.registerNewTeam("chunkloaders");
             chunkLoaderTeam.setDisplayName("Chunkloader");

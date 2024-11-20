@@ -28,7 +28,7 @@ public class LoadChunkCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Dieser Befehl kann nur von Spielern verwendet werden.");
+            sender.sendMessage("This command can only be used by players.");
             return true;
         }
 
@@ -61,7 +61,7 @@ public class LoadChunkCommand implements CommandExecutor {
 
         saveChunkToConfig(chunkName, playerChunk);
 
-        player.sendMessage("Chunks in einem Gebiet wurden geladen. Name: " + chunkName);
+        player.sendMessage("Chunks will be loaded in this area with name: " + chunkName);
         return true;
     }
 

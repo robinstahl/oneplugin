@@ -25,7 +25,6 @@ public final class OnePlugin extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
-        // Initialisiere ScoreboardManager
         this.scoreboardManager = new ScoreboardManager();
 
         // Commands

@@ -63,9 +63,9 @@ public class UnloadChunkCommand implements CommandExecutor {
         }
 
         if (chunkFound) {
-            player.sendMessage("Das Gebiet mit dem Namen " + chunkName + " wurde entladen.");
+            player.sendMessage("The area with name " + chunkName + " will be unloaded.");
         } else {
-            player.sendMessage("Kein geladenes Gebiet mit dem Namen " + chunkName + " gefunden.");
+            player.sendMessage("No area with name " + chunkName + " was found.");
         }
 
         return true;
