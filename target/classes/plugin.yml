@@ -9,3 +9,9 @@ commands:
   timber:
     description: Toggles den Timber-Mode
     usage: /timber
+  loadchunk:
+    description: Loads a chunk permanently.
+    usage: /loadchunk
+  unloadchunk:
+    description: Unloads a previously loaded chunk.
+    usage: /unloadchunk
