@@ -27,14 +27,14 @@ public class UnloadChunkCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Dieser Befehl kann nur von Spielern verwendet werden.");
+            sender.sendMessage("This command can only be run by a player!.");
             return true;
         }
 
         Player player = (Player) sender;
 
         if (args.length < 1) {
-            player.sendMessage("Bitte gib den Namen des Chunks an, den du entladen möchtest (z.B. farm).");
+            player.sendMessage("Please provide a valid chunk name. E.g. farm");
             return true;
         }
 
