@@ -28,7 +28,7 @@ public class LoadChunkCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Dieser Befehl kann nur von Spielern verwendet werden.");
+            sender.sendMessage("This command can only be executed by players.");
             return true;
         }
 
@@ -37,6 +37,7 @@ public class LoadChunkCommand implements CommandExecutor {
         Location location = player.getLocation();
         Chunk playerChunk = location.getChunk();
 
+        // If a name is provided, use it. Otherwise, generate a default name.
         String chunkName = (args.length > 0) ? args[0] : "ChunkLoader(" + playerChunk.getX() + "," + playerChunk.getZ() + ")";
         int radius = 8;
 
@@ -59,9 +60,10 @@ public class LoadChunkCommand implements CommandExecutor {
 
         plugin.getScoreboardManager().addArmorStandToTeam(armorStand, "chunkloaders");
 
+        // Save chunk information to config.yml
         saveChunkToConfig(chunkName, playerChunk);
 
-        player.sendMessage("Chunks in einem Gebiet wurden geladen. Name: " + chunkName);
+        player.sendMessage("Chunks have been loaded with the name: " + chunkName);
         return true;
     }
 

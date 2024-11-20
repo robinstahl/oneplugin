@@ -6,8 +6,6 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
-import java.util.logging.Logger;
-
 public class ScoreboardManager {
 
     private final Scoreboard scoreboard;
@@ -15,10 +13,10 @@ public class ScoreboardManager {
     public ScoreboardManager() {
         this.scoreboard = Bukkit.getScoreboardManager().getMainScoreboard();
 
-        // Erstelle Team für Chunkloader, falls nicht vorhanden
+        // Create team for chunk loaders if not already existing
         if (scoreboard.getTeam("chunkloaders") == null) {
             Team chunkLoaderTeam = scoreboard.registerNewTeam("chunkloaders");
-            chunkLoaderTeam.setDisplayName("Chunkloader");
+            chunkLoaderTeam.setDisplayName("Chunk Loaders");
             chunkLoaderTeam.setColor(ChatColor.GOLD);
             chunkLoaderTeam.setOption(Team.Option.NAME_TAG_VISIBILITY, Team.OptionStatus.ALWAYS);
         }
@@ -28,7 +26,6 @@ public class ScoreboardManager {
         Team chunkLoaderTeam = scoreboard.getTeam("chunkloaders");
         if (chunkLoaderTeam != null) {
             chunkLoaderTeam.addEntry(name);
-            System.out.println("Added chunk loader " + name);
         }
     }
 

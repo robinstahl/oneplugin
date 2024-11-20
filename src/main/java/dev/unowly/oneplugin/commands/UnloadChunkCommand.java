@@ -27,32 +27,35 @@ public class UnloadChunkCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Dieser Befehl kann nur von Spielern verwendet werden.");
+            sender.sendMessage("This command can only be executed by players.");
             return true;
         }
 
         Player player = (Player) sender;
 
         if (args.length < 1) {
-            player.sendMessage("Bitte gib den Namen des Chunks an, den du entladen möchtest (z.B. farm).");
+            player.sendMessage("Please specify the name of the chunk to unload (e.g., farm).");
             return true;
         }
 
         String chunkName = args[0];
         boolean chunkFound = false;
 
+        // Remove chunk from config.yml
         if (plugin.getConfig().contains("loadedChunks." + chunkName)) {
             plugin.getConfig().set("loadedChunks." + chunkName, null);
             plugin.saveConfig();
             chunkFound = true;
         }
 
+        // Unload chunks
         for (Chunk chunk : loadChunkCommand.getLoadedChunks()) {
             if (chunk.isForceLoaded()) {
                 chunk.setForceLoaded(false);
             }
         }
 
+        // Remove associated ArmorStands
         for (World world : Bukkit.getWorlds()) {
             for (Entity entity : world.getEntities()) {
                 if (entity instanceof ArmorStand && entity.getScoreboardTags().contains(chunkName)) {
@@ -63,9 +66,9 @@ public class UnloadChunkCommand implements CommandExecutor {
         }
 
         if (chunkFound) {
-            player.sendMessage("Das Gebiet mit dem Namen " + chunkName + " wurde entladen.");
+            player.sendMessage("The chunk with the name " + chunkName + " has been unloaded.");
         } else {
-            player.sendMessage("Kein geladenes Gebiet mit dem Namen " + chunkName + " gefunden.");
+            player.sendMessage("No loaded chunk found with the name " + chunkName + ".");
         }
 
         return true;
