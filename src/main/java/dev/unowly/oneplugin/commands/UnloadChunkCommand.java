@@ -28,6 +28,7 @@ public class UnloadChunkCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage("This command can only be run by a player!.");
+
             return true;
         }
 
@@ -67,7 +68,6 @@ public class UnloadChunkCommand implements CommandExecutor {
         } else {
             player.sendMessage("No area with name " + chunkName + " was found.");
         }
-
         return true;
     }
 }
