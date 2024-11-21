@@ -13,7 +13,6 @@ public final class OnePlugin extends JavaPlugin {
 
     private final Set<UUID> timberEnabled = new HashSet<>();
     private final Set<Chunk> loadedChunks = new HashSet<>();
-    private ScoreboardManager scoreboardManager;
 
     @Override
     public void onEnable() {
@@ -33,13 +32,5 @@ public final class OnePlugin extends JavaPlugin {
 
     public Set<UUID> getTimberEnabled() {
         return timberEnabled;
-    }
-
-    public Set<Chunk> getLoadedChunks() {
-        return loadedChunks;
-    }
-
-    public ScoreboardManager getScoreboardManager() {
-        return scoreboardManager;
     }
 }
