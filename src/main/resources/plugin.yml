@@ -15,3 +15,6 @@ commands:
   unloadchunk:
     description: Unloads a previously loaded chunk.
     usage: /unloadchunk
+  togglespawnerbreak:
+    description: Toggles whether spawners can be broken.
+    usage: /togglespawnerbreak
