@@ -36,6 +36,7 @@ public final class OnePlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         getServer().getPluginManager().registerEvents(new TimberListener(this), this);
         getServer().getPluginManager().registerEvents(new SpawnerBreakListener(this), this);
+        getServer().getPluginManager().registerEvents(new CropHarvestListener(this), this);
     }
 
     public Set<UUID> getTimberEnabled() {
