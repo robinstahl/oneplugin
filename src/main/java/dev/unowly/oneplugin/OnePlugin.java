@@ -19,20 +19,12 @@ public final class OnePlugin extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
 
-        // Initialize ScoreboardManager
-        this.scoreboardManager = new ScoreboardManager();
-
         // Commands
-        LoadChunkCommand loadChunkCommand = new LoadChunkCommand(this);
-        getCommand("loadchunk").setExecutor(loadChunkCommand);
-        getCommand("unloadchunk").setExecutor(new UnloadChunkCommand(loadChunkCommand, scoreboardManager, this));
         getCommand("setrank").setExecutor(new SetRankCommand(this));
         getCommand("timber").setExecutor(new TimberCommand(this));
         getCommand("togglespawnerbreak").setExecutor(new ToggleSpawnerBreakCommand(this));
 
         // Events
-        getServer().getPluginManager().registerEvents(new ArmorStandProtectionListener(), this);
-        getServer().getPluginManager().registerEvents(new ChunkNotificationListener(loadedChunks), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         getServer().getPluginManager().registerEvents(new TimberListener(this), this);
         getServer().getPluginManager().registerEvents(new SpawnerBreakListener(this), this);
