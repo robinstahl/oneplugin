@@ -13,3 +13,7 @@ chunkloader:
   skin:
     texture: "URL_TO_TEXTURE"
     signature: "TEXTURE_SIGNATURE"
+
+spawner:
+  break:
+    enabled: true

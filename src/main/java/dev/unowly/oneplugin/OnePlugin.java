@@ -1,13 +1,7 @@
 package dev.unowly.oneplugin;
 
-import dev.unowly.oneplugin.commands.LoadChunkCommand;
-import dev.unowly.oneplugin.commands.SetRankCommand;
-import dev.unowly.oneplugin.commands.TimberCommand;
-import dev.unowly.oneplugin.commands.UnloadChunkCommand;
-import dev.unowly.oneplugin.events.ArmorStandProtectionListener;
-import dev.unowly.oneplugin.events.ChunkNotificationListener;
-import dev.unowly.oneplugin.events.PlayerJoinListener;
-import dev.unowly.oneplugin.events.TimberListener;
+import dev.unowly.oneplugin.commands.*;
+import dev.unowly.oneplugin.events.*;
 import org.bukkit.Chunk;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -34,12 +28,14 @@ public final class OnePlugin extends JavaPlugin {
         getCommand("unloadchunk").setExecutor(new UnloadChunkCommand(loadChunkCommand, scoreboardManager, this));
         getCommand("setrank").setExecutor(new SetRankCommand(this));
         getCommand("timber").setExecutor(new TimberCommand(this));
+        getCommand("togglespawnerbreak").setExecutor(new ToggleSpawnerBreakCommand(this));
 
         // Events
         getServer().getPluginManager().registerEvents(new ArmorStandProtectionListener(), this);
         getServer().getPluginManager().registerEvents(new ChunkNotificationListener(loadedChunks), this);
         getServer().getPluginManager().registerEvents(new PlayerJoinListener(this), this);
         getServer().getPluginManager().registerEvents(new TimberListener(this), this);
+        getServer().getPluginManager().registerEvents(new SpawnerBreakListener(this), this);
     }
 
     public Set<UUID> getTimberEnabled() {
